@@ -1,0 +1,11 @@
+excel/
+graph/
+zu/
+*.aux
+*.idx
+*.ilg
+*.ind
+*.log
+*.out
+*.dvi
+*.toc

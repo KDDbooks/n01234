@@ -1,0 +1,143 @@
+%% 
+%%  * 明朝： hmc/{l,m,bx}/n (Light -> \ltseries, Regular, Bold -> \bfseries)
+%%     * hmc/l:  源ノ明朝 Regular   <- 出典
+%%     * hmc/m:  源ノ明朝 SemiBold  <- 本文 
+%%     * hmc/bx: 源ノ明朝 Bold      <- 本扉
+%%  * ゴシック： hgt/{m,bx,eb}/n (Regular, Bold -> \bfseries, ExtraBold -> \ebseries)
+%%     * hgt/m:  源ノ角ゴシック Regular <- 柱, H6 (subparagraph), 表本文
+%%     * hgt/bx: 源ノ角ゴシック Bold    <- 強調, H1 (chapter), H2 (section), H4 (subsubsection), コラム見出し (column), 解答 (w/ subsubsection*), 参考文献見出し, 本扉
+%%     * hgt/eb: 源ノ角ゴシック Heavy   <- H3 (subsection), 問題 (w/ subsection*)
+%%  * 丸ゴシック： mg/m/n (Regular -> \mgfamily)
+%%     * mg/m: 源ノ角ゴシック Medium   <- H5 (paragraph), 図表キャプション, 表見出し
+%%  * ［標準］明朝： mc/m/n
+%%     * m: 源ノ明朝 Medium         <- 
+%%  * ［標準］ゴシック： gt/m/n
+%%     * m: 源ノ角ゴシック Normal   <- 
+
+% pTeX, upTeX
+rml	2004-H	HaranoAjiMincho-Regular.otf
+rmlv	2004-V	HaranoAjiMincho-Regular.otf
+gbm	2004-H	HaranoAjiGothic-Medium.otf
+gbmv	2004-V	HaranoAjiGothic-Medium.otf
+urml	UniJIS2004-UTF16-H	HaranoAjiMincho-Regular.otf
+urmlv	UniJIS2004-UTF16-V	HaranoAjiMincho-Regular.otf
+ugbm	UniJIS2004-UTF16-H	HaranoAjiGothic-Medium.otf
+ugbmv	UniJIS2004-UTF16-V	HaranoAjiGothic-Medium.otf
+uprml-h	UniJIS2004-UTF16-H	HaranoAjiMincho-Regular.otf
+uprml-v	UniJIS2004-UTF16-V	HaranoAjiMincho-Regular.otf
+upgbm-h	UniJIS2004-UTF16-H	HaranoAjiGothic-Medium.otf
+upgbm-v	UniJIS2004-UTF16-V	HaranoAjiGothic-Medium.otf
+uprml-hq	UniJIS-UCS2-H	HaranoAjiMincho-Regular.otf
+upgbm-hq	UniJIS-UCS2-H	HaranoAjiGothic-Medium.otf
+
+% TEXT, 90JIS
+hminl-h	H	HaranoAjiMincho-Regular.otf
+hminl-v	V	HaranoAjiMincho-Regular.otf
+hminr-h	H	HaranoAjiMincho-SemiBold.otf
+hminr-v	V	HaranoAjiMincho-SemiBold.otf
+hminb-h	H	HaranoAjiMincho-Bold.otf
+hminb-v	V	HaranoAjiMincho-Bold.otf
+hgothr-h	H	HaranoAjiGothic-Regular.otf
+hgothr-v	V	HaranoAjiGothic-Regular.otf
+hgothb-h	H	HaranoAjiGothic-Bold.otf
+hgothb-v	V	HaranoAjiGothic-Bold.otf
+hgotheb-h	H	HaranoAjiGothic-Heavy.otf
+hgotheb-v	V	HaranoAjiGothic-Heavy.otf
+hmgothr-h	H	HaranoAjiGothic-Medium.otf
+hmgothr-v	V	HaranoAjiGothic-Medium.otf
+
+% TEXT, JIS04
+hminln-h	H	HaranoAjiMincho-Regular.otf
+hminln-v	V	HaranoAjiMincho-Regular.otf
+hminrn-h	H	HaranoAjiMincho-SemiBold.otf
+hminrn-v	V	HaranoAjiMincho-SemiBold.otf
+hminbn-h	H	HaranoAjiMincho-Bold.otf
+hminbn-v	V	HaranoAjiMincho-Bold.otf
+hgothrn-h	H	HaranoAjiGothic-Regular.otf
+hgothrn-v	V	HaranoAjiGothic-Regular.otf
+hgothbn-h	H	HaranoAjiGothic-Bold.otf
+hgothbn-v	V	HaranoAjiGothic-Bold.otf
+hgothebn-h	H	HaranoAjiGothic-Heavy.otf
+hgothebn-v	V	HaranoAjiGothic-Heavy.otf
+hmgothrn-h	H	HaranoAjiGothic-Medium.otf
+hmgothrn-v	V	HaranoAjiGothic-Medium.otf
+
+% CID
+otf-cjml-h	Identity-H	HaranoAjiMincho-Regular.otf
+otf-cjml-v	Identity-V	HaranoAjiMincho-Regular.otf
+otf-cjmr-h	Identity-H	HaranoAjiMincho-SemiBold.otf
+otf-cjmr-v	Identity-V	HaranoAjiMincho-SemiBold.otf
+otf-cjmb-h	Identity-H	HaranoAjiMincho-Bold.otf
+otf-cjmb-v	Identity-V	HaranoAjiMincho-Bold.otf
+otf-cjgr-h	Identity-H	HaranoAjiGothic-Regular.otf
+otf-cjgr-v	Identity-V	HaranoAjiGothic-Regular.otf
+otf-cjgb-h	Identity-H	HaranoAjiGothic-Bold.otf
+otf-cjgb-v	Identity-V	HaranoAjiGothic-Bold.otf
+otf-cjge-h	Identity-H	HaranoAjiGothic-Heavy.otf
+otf-cjge-v	Identity-V	HaranoAjiGothic-Heavy.otf
+otf-cjmgr-h	Identity-H	HaranoAjiGothic-Medium.otf
+otf-cjmgr-v	Identity-V	HaranoAjiGothic-Medium.otf
+
+% Unicode 90JIS
+otf-ujml-h	UniJIS-UTF16-H	HaranoAjiMincho-Regular.otf
+otf-ujml-v	UniJIS-UTF16-V	HaranoAjiMincho-Regular.otf
+otf-ujmr-h	UniJIS-UTF16-H	HaranoAjiMincho-SemiBold.otf
+otf-ujmr-v	UniJIS-UTF16-V	HaranoAjiMincho-SemiBold.otf
+otf-ujmb-h	UniJIS-UTF16-H	HaranoAjiMincho-Bold.otf
+otf-ujmb-v	UniJIS-UTF16-V	HaranoAjiMincho-Bold.otf
+otf-ujgr-h	UniJIS-UTF16-H	HaranoAjiGothic-Regular.otf
+otf-ujgr-v	UniJIS-UTF16-V	HaranoAjiGothic-Regular.otf
+otf-ujgb-h	UniJIS-UTF16-H	HaranoAjiGothic-Bold.otf
+otf-ujgb-v	UniJIS-UTF16-V	HaranoAjiGothic-Bold.otf
+otf-ujge-h	UniJIS-UTF16-H	HaranoAjiGothic-Heavy.otf
+otf-ujge-v	UniJIS-UTF16-V	HaranoAjiGothic-Heavy.otf
+otf-ujmgr-h	UniJIS-UTF16-H	HaranoAjiGothic-Medium.otf
+otf-ujmgr-v	UniJIS-UTF16-V	HaranoAjiGothic-Medium.otf
+
+% Unicode JIS04
+otf-ujmln-h	UniJIS2004-UTF16-H	HaranoAjiMincho-Regular.otf
+otf-ujmln-v	UniJIS2004-UTF16-V	HaranoAjiMincho-Regular.otf
+otf-ujmrn-h	UniJIS2004-UTF16-H	HaranoAjiMincho-SemiBold.otf
+otf-ujmrn-v	UniJIS2004-UTF16-V	HaranoAjiMincho-SemiBold.otf
+otf-ujmbn-h	UniJIS2004-UTF16-H	HaranoAjiMincho-Bold.otf
+otf-ujmbn-v	UniJIS2004-UTF16-V	HaranoAjiMincho-Bold.otf
+otf-ujgrn-h	UniJIS2004-UTF16-H	HaranoAjiGothic-Regular.otf
+otf-ujgrn-v	UniJIS2004-UTF16-V	HaranoAjiGothic-Regular.otf
+otf-ujgbn-h	UniJIS2004-UTF16-H	HaranoAjiGothic-Bold.otf
+otf-ujgbn-v	UniJIS2004-UTF16-V	HaranoAjiGothic-Bold.otf
+otf-ujgen-h	UniJIS2004-UTF16-H	HaranoAjiGothic-Heavy.otf
+otf-ujgen-v	UniJIS2004-UTF16-V	HaranoAjiGothic-Heavy.otf
+otf-ujmgrn-h	UniJIS2004-UTF16-H	HaranoAjiGothic-Medium.otf
+otf-ujmgrn-v	UniJIS2004-UTF16-V	HaranoAjiGothic-Medium.otf
+
+% TEXT, 90JIS
+uphminl-h	UniJIS-UTF16-H	HaranoAjiMincho-Regular.otf
+uphminl-v	UniJIS-UTF16-V	HaranoAjiMincho-Regular.otf
+uphminr-h	UniJIS-UTF16-H	HaranoAjiMincho-SemiBold.otf
+uphminr-v	UniJIS-UTF16-V	HaranoAjiMincho-SemiBold.otf
+uphminb-h	UniJIS-UTF16-H	HaranoAjiMincho-Bold.otf
+uphminb-v	UniJIS-UTF16-V	HaranoAjiMincho-Bold.otf
+uphgothr-h	UniJIS-UTF16-H	HaranoAjiGothic-Regular.otf
+uphgothr-v	UniJIS-UTF16-V	HaranoAjiGothic-Regular.otf
+uphgothb-h	UniJIS-UTF16-H	HaranoAjiGothic-Bold.otf
+uphgothb-v	UniJIS-UTF16-V	HaranoAjiGothic-Bold.otf
+uphgotheb-h	UniJIS-UTF16-H	HaranoAjiGothic-Heavy.otf
+uphgotheb-v	UniJIS-UTF16-V	HaranoAjiGothic-Heavy.otf
+uphmgothr-h	UniJIS-UTF16-H	HaranoAjiGothic-Medium.otf
+uphmgothr-v	UniJIS-UTF16-V	HaranoAjiGothic-Medium.otf
+
+% TEXT, JIS04
+uphminln-h	UniJIS2004-UTF16-H	HaranoAjiMincho-Regular.otf
+uphminln-v	UniJIS2004-UTF16-V	HaranoAjiMincho-Regular.otf
+uphminrn-h	UniJIS2004-UTF16-H	HaranoAjiMincho-SemiBold.otf
+uphminrn-v	UniJIS2004-UTF16-V	HaranoAjiMincho-SemiBold.otf
+uphminbn-h	UniJIS2004-UTF16-H	HaranoAjiMincho-Bold.otf
+uphminbn-v	UniJIS2004-UTF16-V	HaranoAjiMincho-Bold.otf
+uphgothrn-h	UniJIS2004-UTF16-H	HaranoAjiGothic-Regular.otf
+uphgothrn-v	UniJIS2004-UTF16-V	HaranoAjiGothic-Regular.otf
+uphgothbn-h	UniJIS2004-UTF16-H	HaranoAjiGothic-Bold.otf
+uphgothbn-v	UniJIS2004-UTF16-V	HaranoAjiGothic-Bold.otf
+uphgothebn-h	UniJIS2004-UTF16-H	HaranoAjiGothic-Heavy.otf
+uphgothebn-v	UniJIS2004-UTF16-V	HaranoAjiGothic-Heavy.otf
+uphmgothrn-h	UniJIS2004-UTF16-H	HaranoAjiGothic-Medium.otf
+uphmgothrn-v	UniJIS2004-UTF16-V	HaranoAjiGothic-Medium.otf

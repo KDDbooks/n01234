@@ -1,0 +1,293 @@
+
+\begin{lead}
+
+われわれが耳にする音声は一般的に種々の周波数成分から成り立っている．この種々の周波数成分がどのように成り立っているかを知るために，フーリエ変換を用いて解析する方法を習得する．また，音声信号が基本周波数の整数倍の周波数だけ存在するという考えのもと，線形システムの解析についても習得する．
+
+\end{lead}
+
+%\vfill
+
+%\begin{koumoku}
+%アナログフィルタ\\
+%電気回路\\
+%交流電気回路\\
+%周波数特性\\
+%低域フィルタ\\
+%高域フィルタ\\
+%帯域フィルタ
+%\end{koumoku}
+
+%\clearpage
+
+\chapter{フーリエ級数・フーリエ変換}
+
+\label{chapter:f}
+
+\section{フーリエ級数}
+
+ここでは，ある周期的な信号$f(t)=f(t+nT)$($n$は任意の整数)を考える．このとき，$f(t)$を基本角周波数$\omega_0$の整数倍による三角関数からなる級数で表すと，次式のように表される．
+\begin{equation}
+f(t)=\frac{a_o}{2}+\sum_{n=1}^{\infty}(a_n \cos n\omega_0 t + b_n \sin n\omega_0 t)
+\label{eqn:fourier-kyusu}
+\end{equation}
+この式(\ref{eqn:fourier-kyusu})を実フーリエ級数と呼んでいる．ここで基本角周波数$\omega_0$（単位は[rad/s]）は，
+\begin{equation}
+\omega_0=\frac{2\pi}{T}
+\label{eqn:fourier-omega_0}
+\end{equation}
+である．このことから，ある周期的な信号$f(t)=f(t+nT)$($n$は任意の整数)は，基本周波数の整数倍に関する正弦波や余弦波の和で表されるということができる．
+
+ここで，式(\ref{eqn:fourier-kyusu})における$a_0$，$a_n$，$b_n$は実フーリエ係数\footnotemark と呼ばれるものであり，次式で表される．
+
+\footnotetext{実フーリエ係数 \\ ところで，式(\ref{eqn:fourier_a_n})において$n=0$とした場合には$\cos n\omega_0 t=1$が常に成立するため，
+\begin{eqnarray}
+a_0&=&\frac{2}{T}\int^{\frac{T}{2}}_{-\frac{T}{2}}f(t) \cos n\omega_0 t dt \nonumber \\
+ &=& \frac{2}{T}\int^{\frac{T}{2}}_{-\frac{T}{2}}f(t)dt \nonumber
+\end{eqnarray}
+となることから，式(\ref{eqn:fourier_a_0})に帰着する．
+}
+
+\begin{eqnarray}
+a_0&=&\frac{2}{T}\int^{\frac{T}{2}}_{-\frac{T}{2}}f(t)dt \label{eqn:fourier_a_0}\\
+a_n&=&\frac{2}{T}\int^{\frac{T}{2}}_{-\frac{T}{2}}f(t) \cos n\omega_0 t dt \hspace{1cm} (n=1,2,\cdots) \label{eqn:fourier_a_n} \\
+b_n&=&\frac{2}{T}\int^{\frac{T}{2}}_{-\frac{T}{2}}f(t) \sin n\omega_0 t dt \hspace{1cm} (n=1,2,\cdots)
+\end{eqnarray}
+
+\subsection*{例題4.1}
+図\ref{fig:kukeiha}に示す矩形波について，フーリエ級数展開をせよ．
+
+
+
+
+\begin{equation}
+f(t)= \left \{
+\begin{array}{ll}
+1 & (0 \leq t < \pi) \\
+0 & (\pi \leq t < 2\pi)
+\end{array}
+\right .
+\end{equation}
+
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=6cm]{fig/kukeiha.eps}
+\caption{矩形波}
+\label{fig:kukeiha}
+\end{center}
+\end{figure}
+
+この矩形波について，実フーリエ係数$a_0$，$a_n$，$b_n$をそれぞれ求めると，
+\begin{eqnarray}
+a_0 & = & \frac{2}{T}\int^{\frac{T}{2}}_{0} dt\nonumber \\
+ & = & 1 - 0  \nonumber \\
+ & = & 1
+\end{eqnarray}
+\begin{eqnarray}
+a_n & = & \frac{2}{T}\int^{\frac{T}{2}}_{0}\cos \left( 2\pi k \frac{t}{T} \right) dt\nonumber \\
+ & = & \frac{1}{\pi k} (\sin k\pi - \sin 0 ) \nonumber \\
+ & = & 0
+\end{eqnarray}
+\begin{eqnarray}
+b_n & = & \frac{2}{T}\int^{\frac{T}{2}}_{0}\sin \left( 2\pi k \frac{t}{T} \right) dt\nonumber \\
+ & = & \frac{1}{\pi k} ( - \cos k\pi + \cos 0) \nonumber \\
+ & = & \left \{
+\begin{array}{cc}
+\displaystyle \frac{2}{\pi k} & k=1,3,5,\cdots \\
+0 & k=2,4,6,\cdots
+\end{array}
+\right .
+\end{eqnarray}
+
+\section{フーリエ級数展開の複素表現}
+
+先述と同様に，ある周期的な信号$f(t)=f(t+nT)$($n$は任意の整数)を考える．このとき，$f(t)$を基本角周波数$\omega_0$の整数倍による指数関数からなる級数で表す．ところで，$\sqrt{-1}=j$\footnotemark とおくものと仮定して，オイラーの公式によれば，指数関数と三角関数の間には
+
+\footnotetext{複素数の扱い \\ 数学の教科書などのように多くの場合
+\begin{equation}
+i=\sqrt{-1}
+\end{equation}
+と標記するが，電気電子工学や情報工学などの分野では，$i$を電流としての変数として用いるため，混乱を避けるために$j$を用いることとして，
+\begin{equation}
+j=\sqrt{-1}
+\end{equation}
+と標記する慣例がある．
+}
+\begin{equation}
+e^{j\theta}=\cos \theta + j \sin \theta
+\end{equation}
+\begin{equation}
+\cos \theta=\frac{e^{j\theta}+e^{-j\theta}}{2}
+\end{equation}
+\begin{equation}
+\sin \theta=\frac{e^{j\theta}-e^{-j\theta}}{2j}
+\end{equation}
+
+なる関係があることが知られているので，式と，次式のように表される．
+\begin{eqnarray}
+f(t)&=&\frac{a_0}{2}+\sum_{n=1}^{\infty}(a_n \cos n\omega_0 t + b_n \sin n\omega_0 t) \nonumber \\
+ &=&\frac{a_0}{2}+\sum_{n=1}^{\infty}(a_n \frac{e^{jn\omega_0 t}+e^{-jn\omega_0 t}}{2} + b_n \frac{e^{jn\omega_0 t}-e^{-jn\omega_0 t}}{2j}) \nonumber \\
+ &=&\frac{a_0}{2}+\sum_{n=1}^{\infty}\left ( \frac{a_n-jb_n}{2} e^{jn\omega_0 t}+\frac{a_n+jb_n}{2}e^{-jn\omega_0 t} \right ) \nonumber \\
+ &=&\sum_{n=0}^{\infty}\left ( c_n e^{jn\omega_0 t}+c_{-n} e^{-jn\omega_0 t} \right ) \\
+\label{eqn:fourier_c_n}
+ &=&\sum_{n=-\infty}^{\infty} c_n e^{jn\omega_0 t}
+\label{eqn:fourier-kyusu2}
+\end{eqnarray}
+この式(\ref{eqn:fourier-kyusu})を複素フーリエ級数と呼んでいる．ここで基本角周波数$\omega_0$（単位は[rad/s]）は，
+\begin{equation}
+\omega_0=\frac{2\pi}{T}
+\label{eqn:fourier-omega_0}
+\end{equation}
+である．このことから，ある周期的な信号$f(t)=f(t+nT)$($n$は任意の整数)は，基本周波数の整数倍に関する正弦波や余弦波の和で表されるということができる．
+
+ここで，式(\ref{eqn:fourier-kyusu})における$c_n$は複素フーリエ係数\footnotemark と呼ばれるものであり，次式で表される．
+
+\footnotetext{複素フーリエ係数 \\ ところで，式(\ref{eqn:fourier_c_n})において$c_n$と$c_{-n}$との間には，複素共役の関係があるため，式(\ref{eqn:fourier-kyusu2})に帰着する．
+}
+
+\begin{eqnarray}
+c_n&=&\frac{1}{T}\int^{\frac{T}{2}}_{-\frac{T}{2}}f(t) e^{ -jn\omega_0 t } dt \hspace{1cm} (n=0,1,2,\cdots)
+\end{eqnarray}
+
+\subsection*{例題4.2}
+図\ref{fig:kukeiha2}に示す矩形波について，フーリエ級数展開をせよ．
+
+
+
+
+\begin{equation}
+f(t)= \left \{
+\begin{array}{ll}
+1 & (0 \leq t < \pi) \\
+0 & (\pi \leq t < 2\pi)
+\end{array}
+\right .
+\end{equation}
+
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=6cm]{fig/kukeiha.eps}
+\caption{矩形波}
+\label{fig:kukeiha2}
+\end{center}
+\end{figure}
+
+この矩形波について，実フーリエ係数$a_0$，$a_n$，$b_n$をそれぞれ求めると，
+\begin{eqnarray}
+c_n & = & \frac{1}{T}\int^{\frac{T}{2}}_{-\frac{T}{2}} e^{\left (-j2n \pi \frac{t}{T} \right )}dt \nonumber \\
+ & = & \frac{1}{2jn\pi} \left ( e^{n \pi } - e^{-n \pi} \right )  \nonumber \\
+ & = & \frac{1}{n \pi} \frac{\left ( e^{n \pi } - e^{-n \pi} \right )}{2j} \nonumber \\
+ & = & \frac{\sin n \pi}{n \pi} \nonumber \\
+ & = & sinc n\pi
+\end{eqnarray}
+\begin{eqnarray}
+a_n & = & \frac{2}{T}\int^{\frac{T}{2}}_{0}\cos \left( 2\pi k \frac{t}{T} \right) dt\nonumber \\
+ & = & \frac{1}{\pi k} (\sin k\pi - \sin 0 ) \nonumber \\
+ & = & 0
+\end{eqnarray}
+\begin{eqnarray}
+b_n & = & \frac{2}{T}\int^{\frac{T}{2}}_{0}\sin \left( 2\pi k \frac{t}{T} \right) dt\nonumber \\
+ & = & \frac{1}{\pi k} ( - \cos k\pi + \cos 0) \nonumber \\
+ & = & \left \{
+\begin{array}{cc}
+\displaystyle \frac{2}{\pi k} & k=1,3,5,\cdots \\
+0 & k=2,4,6,\cdots
+\end{array}
+\right .
+\end{eqnarray}
+
+\section{フーリエ変換}
+
+\subsection{フーリエ変換の定義}
+
+非周期的な連続信号$f(t)$を考える．図\ref{fig:hishuki-1}(a)に示す信号は，$t=0$の周辺にパルスが1個存在するだけであることから，周期信号ではなく，非周期信号である．このような非周期信号の周波数解析，すなわち時間領域と周波数領域との変換は次式により行われる．
+
+\begin{equation}
+X(\Omega)=\int^{\infty}_{-\infty}x(t)e^{-j\Omega t}d \Omega
+\label{eqn:fourier-3}
+\end{equation}
+\begin{equation}
+x(t)=\frac{1}{2\pi} \int^{\infty}_{-\infty}X(\Omega)e^{j\Omega t}d \Omega
+\label{eqn:inv_fourier-3}
+\end{equation}
+
+ここで，式(\ref{eqn:fourier-3})はフーリエ変換と呼び，時間領域$x(t)$から周波数領域$X(\Omega)$への変換式である．また，式(\ref{eqn:inv_fourier-3})は逆フーリエ変換と呼び，周波数領域$X(\Omega)$から時間領域$x(t)$への変換式である．また，ここで示したフーリエ変換（式(\ref{eqn:fourier-3})）ならびに逆フーリエ変換（式(\ref{eqn:inv_fourier-3})）の両式の総称をフーリエ変換と呼ぶこともある．
+
+\subsection*{例題4.3}
+図\ref{fig:kukeiha5}に示す矩形波について，フーリエ級数展開をせよ．
+
+\begin{equation}
+x(t)= \left \{
+\begin{array}{ll}
+1 & (-T_1 \leq t < T_1) \\
+0 & (それ以外)
+\end{array}
+\right .
+\end{equation}
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=6cm]{fig/kukeiha.eps}
+\caption{矩形波}
+\label{fig:kukeiha5}
+\end{center}
+\end{figure}
+
+【解答】式(\ref{eqn:fourier-3})より\footnotemark ，
+
+\begin{eqnarray}
+X(\Omega)&=&\int^{\infty}_{-\infty}x(t)e^{-j\Omega t}d t \nonumber \\
+&=&\int^{T_1}_{-T_1}e^{-j\Omega t}d t \nonumber \\
+&=&-\frac{1}{j\Omega} \left ( e^{-j\Omega T_1} - e^{j\Omega T_1} \right ) \nonumber \\
+&=&2T_1 \frac{e^{j\Omega T_1} - e^{-j\Omega T_1}}{2j\Omega T_1} \nonumber \\
+&=&T_1 \mathrm{sinc}(\Omega T_1) 
+\end{eqnarray}
+
+\footnotetext{sinc関数 \\ 信号処理などで多く用いられる関数であり，
+\begin{equation}
+\mathrm{sinc}(x)=\frac{\sin x}{x}
+\end{equation}
+と書かれる．なお，$x=0$となる場合には，
+\begin{eqnarray}
+\lim_{x \to 0}\mathrm{sinc}(x)&=&\lim_{x \to 0}\frac{\sin x}{x} \nonumber \\
+ &=&\lim_{x \to 0}\frac{\cos x}{1} \nonumber \\
+ &=& 1
+\end{eqnarray}
+となる．
+}
+
+\section*{演習問題}
+
+\subsection*{問題\ref{chapter:f}.1}
+
+以下の逆z変換を，べき級数展開法または部分分数展開法を用いて求めよ．
+
+(1) $X(z)=z^2+2+2z^{-3}$
+
+(2) $X(z)=\displaystyle \frac{1}{1-0.5z^{-1}}$
+
+(3) $X(z)=\displaystyle \frac{2z^{-1}}{1-0.5z^{-1}} + \frac{1}{1-z^{-1}}$
+
+(4) $X(z)=\displaystyle \frac{1}{(1-0.5z^{-1})(1-z^{-1})}$
+
+\subsection*{問題\ref{chapter:f}.2}
+
+以下のシステムの伝達関数を求め，ハードウェア構成を示せ．
+
+(1) $y(n)=x(n)+ax(n-1)+bx(n-2)$
+
+(2) $y(n)=x(n)+ax(n-1)+by(n-2)$
+
+(3) $y(n)=x(n)+ay(n-1)+by(n-2)$
+
+\subsection*{問題\ref{chapter:f}.3}
+
+以下のシステムにおける周波数特性，伝達関数の極をそれぞれ求め安定性を判別せよ．
+
+(1) $H(z)=1+2z^{-1}+z^{-2}$
+
+(2) $H(z)=\displaystyle \frac{1+2z^{-1}}{2+z^{-1}}$
+
+
+

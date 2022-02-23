@@ -1,0 +1,197 @@
+%#!ptex2pdf -l -u -ot '--synctex=1' -od '-z 3' readme-kddbook
+% #!ptex2pdf -l -u -s -ot '--synctex=1' -od '-z 3' readme-kddbook && ptex2pdf -l -u -s -ot '--synctex=1' -od '-z 3' readme-kddbook && upmendex -r -c -g -s kddbook.ist -- readme-kddbook && ptex2pdf -l -u -ot '--synctex=1' -od '-z 3' readme-kddbook
+\documentclass[dvipdfmx,%%<= 特別な事情がないかぎり、有効にしてください。
+  tombo,%%<= トンボを付けて、ご入稿ください。
+  paper=b5,%default: a5; available: a5, b5
+]{kddbook}
+
+%% 必要に応じて、各種パッケージ
+%% 下記で読み込んでいるパッケージたちは、一例です。
+%% tcolorbox パッケージなど利用しない場合、
+%% 下記の \newtcolorbox による設定などを削除してください。
+\usepackage{graphicx}
+% \graphicspath{{./},{images/},{figs/}}
+\usepackage[table]{xcolor}
+% \usepackage{plistings}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{enumerate}
+
+\newtcolorbox{kddframed}{%
+  empty, 
+  before skip=\baselineskip,
+  after skip=\baselineskip,
+  boxsep=3mm, boxrule=0mm, 
+  top=0mm, bottom=0mm, left=0mm, right=0mm, 
+  breakable, pad at break=.25zw,
+  enlargepage flexible=.5zw,
+  borderline={0.1mm}{0mm}{black}, arc=0mm, 
+}
+
+\newtcolorbox{kddshaded}{%
+  enhanced, frame empty, 
+  before skip=\baselineskip,
+  after skip=\baselineskip,
+  boxsep=3mm, boxrule=0mm, 
+  top=0mm, bottom=0mm, left=0mm, right=0mm, 
+  breakable, pad at break=.25zw, 
+  colback=black!15, arc=0mm,
+}
+
+\newtcolorbox{kddcolumn}[1][]{%
+  empty, 
+  before skip=\baselineskip,
+  after skip=\baselineskip,
+  boxsep=3mm, boxrule=0mm, 
+  left skip=10mm,
+  top=0mm, bottom=0mm, left=-3mm, right=-3mm, 
+  breakable, pad at break=.25zw,
+  enlargepage flexible=.5zw,
+  fontupper={\setlength{\parindent}{1zw}},
+  borderline north={0.2mm}{0mm}{black}, 
+  borderline south={0.2mm}{0mm}{black}, 
+  coltitle=black, fonttitle={\bfseries}, 
+  before upper={\noindent\tcbtitle\par},
+  detach title, title={#1},
+}
+
+
+\title{初めてのディジタル信号処理}
+\author{田中賢一}
+\date{2021/10/31}
+
+\begin{document}
+\frontmatter
+%\maketitle
+
+\include{text/chap0}
+
+\tableofcontents
+
+\mainmatter
+
+%第1章
+\input{text/text-intro-1}
+%第2章　演習問題付き
+\input{text/text-math}
+%第3章 　演習問題付き
+\input{text/text-intro}
+%第4章　演習問題付き
+\input{text/text-signal}
+%第5章　演習問題付き
+\input{text/text-z-transform}
+%第6章　演習問題付き
+\input{text/text-z-2}
+%第7章　演習問題付き
+\input{text/text-sampling}
+%第8章　演習問題付き
+\input{text/text-a-filter}
+%第9章　演習問題付き
+\input{text/text-dft}
+%\input{text/text-fourier}
+%第10章　演習問題付き
+\input{text/text-fft}
+%第11章　演習問題付き
+\input{text/text-window}
+%第12章　演習問題付き
+\input{text/text-d-filter}
+%第13章　演習問題付き
+\input{text/text-digital-image-1}
+
+\clearpage
+%第13章
+\input{text/text-kaitou}
+\clearpage
+
+
+\begin{thebibliography}{99}
+
+%ここでは，本書を執筆する上で参考にしたテキストを列挙する．
+
+	\bibitem{電子1}　樋口龍雄，川又政征：``ディジタル信号処理''，昭晃堂（2000）
+	\bibitem{電子2}　前田肇：``信号システム理論の基礎''，コロナ社（1997）
+	\bibitem{電子3}　貴家仁志：``ディジタル信号処理''，オーム社（2014）
+	\bibitem{電子4}　金城繁徳，尾知博：``例題で学ぶディジタル信号処理''，コロナ社（1997）
+%	\bibitem{電子5}　井上高宏，常田明夫，江口啓：``例題で学ぶアナログ電子回路''，森北出版（2009）
+%	\bibitem{電子6}　尾崎弘，金田彌吉，谷口慶治，横山正人：``電子回路　アナログ編（新訂版）''，共立出版（1989）
+%	\bibitem{電子7}　藤井信生：``アナログ電子回路の基礎''，昭晃堂（2004）
+	%\bibitem{電子15}　田中賢一：``マンガでわかる電子回路''，オーム社（2009）
+\end{thebibliography}
+
+\backmatter
+\chapter{謝辞}
+
+本書をまとめるにあたり，近代科学社デジタルファースト編集部の石井沙知編集長をはじめ近代科学社のみなさまに心から感謝申し上げます．
+
+\chapter{著者紹介}
+
+\section*{田中賢一}
+
+1969年7月　宮崎県生まれ
+
+1990年3月　国立都城工業高等専門学校電気工学科卒業
+
+1992年3月　九州工業大学工学部電気工学科卒業
+
+1994年3月　九州工業大学大学院工学研究科博士前期課程修了
+
+九州工業大学工学部助手などを経て，
+
+現在，長崎総合科学大学共通教育部門教授
+
+博士（工学）（九州工業大学）
+
+電子情報通信学会，映像情報メディア学会，画像電子学会，各会員
+
+IEEE Senior Member
+
+画像処理，ホログラフィ，機械学習，教育工学などの研究に従事
+
+%\makelines{10}
+%\section{さいごにひと言}
+%\makelines{10}
+%\subsection{さいごにもうひと言}
+%\makelines{100}
+
+%\chapter*{直打ちおわりに}
+%\markboth{直打ちおわりに}{直打ちおわりに}
+%\addcontentsline{toc}{extchapter}{直打ちおわりに}
+%\makelines{10}
+%\section*{直打ちさいごにひと言}
+%\markright{直打ちさいごにひと言}
+%\makelines{10}
+%\subsection*{直打ちさいごにもうひと言}
+%\makelines{100}
+
+\appendix%%<- 後付け付録を許容しました。
+%\begin{lead}
+%ここでは、大学1回生で習う微分積分学の基本定理から始まり、
+%中心極限定理の証明まで復習します。
+%\end{lead}
+%\chapter{付録：微分積分学の基本}
+%ここでは、大学1回生で習う微分積分学の基本定理から始まり、
+%中心極限定理の証明まで復習します。
+%\section{微分積分学の基本定理}
+%\makelines{10}
+%\section{中間値の定理}
+%\makelines{100}
+
+%\begin{lead}
+%ここでは、大学1回生で習うベクトル空間から始まり、
+%スペクトル分解まで復習します。
+%\end{lead}
+%\chapter{数学的な補足}
+%ここでは、大学1回生で習うベクトル空間から始まり、
+%スペクトル分解まで復習します。
+%\section{ベクトル空間}
+%\makelines{10}
+%\section{線型写像}
+%\makelines{10}
+%\section{スペクトル分解}
+%\makelines{100}
+
+\printindex
+\end{document}
