@@ -1,0 +1,73 @@
+﻿\documentclass[dvipdfmx,%%<= DO NOT REMOVE IT when using Tikz
+  % hanmen, % draft, 
+  % hanmengrid,
+  % tombo, % mentuke, 
+  % spreadbleedbox,
+  % cameraready=preview,%default: print
+  % paper=a5+3.17mm,%default: a5
+  % running-header=chapter,%default: part
+  % float-position:figure=H, float-position:table=p,
+  % spreadbleedbox,
+  % cameraready=pdf,%default: print
+  % part:break-before=right,
+  % chapter:break-before=right,
+  frontmatter:break-before=page,
+  mainmatter:break-inside=page,
+  % toc:break-before=right,
+  % mainmatter:break-before=page,
+  % backmatter:break-before=page,
+  % toc:style-type=notobira,
+  % toc:max-bookmark-level=section,
+  % part:compatibility=v1,
+  float-position:figure=htbp,
+  float-position:table=htbp,
+  %以下図表調整用
+  table.textbf(ja):font-family=futogob101, table.textbf(ja):font-series=b,
+  table.textbf(en):font-family=aotffutogob, table.textbf(en):font-series=b, 
+  table.textbf(ja):font-size=9Q, table.textbf(en):font-size=9Q,
+  table(ja):font-family=gothicbbb, table(ja):font-series=mb,
+  table(en):font-family=aotfgothicbbb, table(en):font-series=m, 
+  table(ja):font-size=9Q, table(en):font-size=9Q,
+  .caption(ja):font-family=futogob101, .caption(ja):font-series=b,
+  .caption(en):font-family=aotffutogob, .caption(en):font-series=b, 
+  .caption(ja):font-size=11Q, .caption(en):font-size=11Q,
+  .caption:line-height=14H, 
+  .source(ja):font-family=gothicbbb, .source(ja):font-series=mb,
+  .source(en):font-family=aotfgothicbbb, .source(en):font-series=m, 
+  .source(ja):font-size=10Q, .source(en):font-size=10Q,
+  .source:line-height=13H,
+  toc:style-type=tobira,toc:max-bookmark-level=section,running-header=part,toc.frontmatter-chapter:bookmark-level=chapter,toc.backmatter-chapter:bookmark-level=chapter,toc.writers:bookmark-level=chapter,frontmatter:break-before=right,backmatter:break-before=right,toc:break-before=right,float-position:table=H,
+]{%
+  %nxtpubbk-a5kdd%
+  nxtpubbk-b5kdd%
+  % nxtpubbk%
+  % nxtpubbk-b5%
+  % nxtpubbk-v1%
+  % nxtpubbk-b5varit%
+  % nxtpubbk-b5masterpeace%
+}[2019/12/25 v6.14]
+\usepackage{nxtpubbk-local}[2019/12/25 v6.14]
+
+% \PDFDocumentInformation{
+%   /Title    (Next Publishingプレビュー)
+%   /Author   (インプレスＲ＆Ｄ［Next Publishing］)
+%   /Subject  (CloudシリーズE-Book/Print Book)
+%   /Keywords (E-Book,Print Book)
+%   /Creator  (Next Publishing 2018/05/10 v5.6)
+% }
+
+
+% \writersheadsymbol{}%writershadコマンドを出力するとき、先頭に出力する文字列
+
+% quagga insert pi_aux_preamble2
+
+\begin{document}
+\frontmatter
+
+\input{N0123400_01.tex}
+\tableofcontents
+\input{N0123402_01.tex}
+\input{N01234_colophon.tex}
+
+
+\end{document}
