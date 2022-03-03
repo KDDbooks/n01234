@@ -471,8 +471,8 @@
 
 %% use newpx
 \RequirePackage[scaled=1.05]{newpxtext}%%requires T1/TS1 (fontenc, textcomp)
-%% If you wish to use \usepackage{amsthm}, 
-%% place it before loading newtxmath or the result will be 
+%% If you wish to use \usepackage{amsthm},
+%% place it before loading newtxmath or the result will be
 %% ! LaTeX Error: Command \openbox already defined.
 \AtBeginDocument{%
 \RequirePackage{newpxmath}%%requires amsmath
@@ -1114,7 +1114,7 @@
       \@makechapterhead{#1}%
       \newpage
     \else
-%% otherwise 
+%% otherwise
       \@makeextchapterhead{#1}%
       \@afterheading
     \fi
@@ -1122,7 +1122,7 @@
     % \@makeschapterhead{#1}%
     \@makeextchapterhead{#1}%
     \@afterheading
-  \fi  
+  \fi
 }
 
 \newcount\@ssect@currlevel
@@ -1909,7 +1909,7 @@
     \addvspace{1.5\Cvs \@plus.5\Cvs \@minus.5\Cvs}%
     \begingroup
       \leftskip\z@\relax
-      \parindent\z@ 
+      \parindent\z@
       \setbox\grnchry@boxa\hbox{\tocchapnum@font\space #2}%
       \def\@pnumwidth{\wd\grnchry@boxa}%
       \rightskip\@pnumwidth
@@ -1943,7 +1943,7 @@
     \addvspace{\Cvs \@plus.25\Cvs \@minus.25\Cvs}%
     \begingroup
       \leftskip\z@\relax
-      \parindent\z@ 
+      \parindent\z@
       \setbox\grnchry@boxa\hbox{\tocchapnum@font\space #2}%
       \def\@pnumwidth{\wd\grnchry@boxa}%
       \rightskip\@pnumwidth
@@ -2448,8 +2448,7 @@
 %% \AtEndDocument{%
 %% }
 
-\if@cameraready\if@pdfhyperlink
-\RequirePackage[dvipdfmx, %% \if@pdfhyperlink\else draft,\fi
+\RequirePackage[dvipdfmx, \if@pdfhyperlink\else draft,\fi
   bookmarks=true,
   bookmarksnumbered=true,
   hidelinks,
@@ -2459,10 +2458,6 @@
   pdflang=ja,
 ]{hyperref}
 \RequirePackage[dvipdfmx]{pxjahyper}
-\fi\fi
-\AtBeginDocument{%
-  \@ifpackageloaded{hyperref}{}{\let\phantomsection\relax}}
-\RequirePackage{atbegshi}
 
 \iftombow
   \hoffset=\dimexpr (210mm - \paperwidth)/2 - 1in\relax
